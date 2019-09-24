@@ -1,4 +1,4 @@
-# chat-seguro
+# Chat Seguro
 Chat criptografado com cifra Simple Des, utilizando a troca de chaves por meio Diff Hellman.
 
 ### Autores
@@ -36,4 +36,4 @@ node server.js
 node main.js
 ```
 
-5. O computador que executar o main.js começará o chat, enviando um número para trocar chaves e em seguida o computador enviará também um número de volta, a partir daí o chat está livre para conversar.
+5. O computador que executar o main.js começará o chat, enviando um número para trocar chaves e em seguida o computador enviará também um número de volta. A partir daí, o chat está livre para conversar.

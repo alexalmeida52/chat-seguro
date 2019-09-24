@@ -1,3 +1,4 @@
+//============== Importações de funções para o funcionamento do chat ==============//
 const express = require('express');
 const SocketProvider = require('./untils/io');
 const sendDiff = require('./untils/diff.js')
@@ -6,12 +7,19 @@ const descript = require('./untils/descript.js');
 const app = express();
 const http = require('http').Server(app);
 const io = SocketProvider.init(http);
+const gerarChaves = require('./untils/gerarChaves.js')
+const readline = require('readline');
+//============== Fim das importações de funções do chat ==============//
+
+//======= Variáveis globais =======//
 var control = 1;
 let Ya;
 let Yb;
 let K1 = '';
 let K2 = '';
-const gerarChaves = require('./untils/gerarChaves.js')
+//======== Fim das variáveis globais ========//
+
+//======= Inicio da configuração do socket =======//
 console.log("Bem vindo ao chat Seguro!\n");
 if (control) console.log('Troca de chaves Diff Hellman')
 io.on('connection', function (socket) {
@@ -22,6 +30,7 @@ io.on('connection', function (socket) {
     if (control == 1) {
       Yb = data;
     }
+    // Desencriptando as mensagens que serão recebidas após a troca de chaves
     let mensagemDescriptografada = await descript(data, K1, K2);
     console.log("Marcio: " + mensagemDescriptografada);
     readLine(socket);
@@ -29,9 +38,10 @@ io.on('connection', function (socket) {
 
 
 });
+//======= Fim da configuração do socket =======//
 
+//======= Função para ler pelo terminal =======//
 function readLine(socket) {
-  const readline = require('readline');
 
   let leitor = readline.createInterface({
     input: process.stdin,
@@ -39,8 +49,9 @@ function readLine(socket) {
   });
   if (control == 1) console.log('Envie seu número ')
   leitor.question("Você > ", async function (answer) {
+    // Esse if serve para verificar se as mensagens são as iniciais para troca de chaves
     if (control ==1) {
-      socket.emit("marcio", sendDiff.init(answer));
+      socket.emit("marcio", sendDiff.init(answer)); 
       console.log("Marcio está digitando...")
 
       Ya = answer;
@@ -53,7 +64,7 @@ function readLine(socket) {
       K2 = gerarChaves(chaveBin)[1];
       return;
     }
-
+    // Encriptando as mensagens que serão enviadas após a troca de chaves
     let mensagemCriptografada = await cript(answer, K1, K2);
     socket.emit("marcio", mensagemCriptografada);
     console.log("Marcio está digitando...")
@@ -61,6 +72,8 @@ function readLine(socket) {
     leitor.close();
   });
 }
+//======= Fim da função para ler pelo terminal =======//
+
 
 
 
@@ -70,8 +83,7 @@ app.use(function (err, req, res, next) {
   res.status(500).send('Something broke!')
 })
 
-const serverPort = process.env.PORT || 5354;
-
+// Fazendo o servidor ouvir a porta 5354
 http.listen(5354, () => {
   // console.log(`Listening on server_port ${serverPort}`);
 });

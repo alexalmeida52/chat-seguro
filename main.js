@@ -1,17 +1,22 @@
+//============== Importações de funções para o funcionamento do chat ==============//
 const io = require('socket.io-client');
 const socket = io.connect("http://10.51.67.140:5354");
 const gerarChaves = require('./untils/gerarChaves.js')
 const cript = require('./untils/cript.js');
 const descript = require('./untils/descript.js');
-
-console.log("Bem vindo ao chat seguro!\n");
-
 const sendDiff = require('./untils/diff.js')
+//============== Fim das importações de funções do chat ==============//
+
+//======= Variáveis globais =======//
 let control = 1;
 let Yb;
 let Ya;
 let K1 = '';
 let K2 = '';
+//======== Fim das variáveis globais ========//
+
+//======= Inicio da configuração do socket =======//
+console.log("Bem vindo ao chat seguro!\n");
 if (control) console.log('Troca de chaves Diff Hellman')
 socket.on('marcio', async (data) => {
     if (control == 2) {
@@ -33,7 +38,9 @@ socket.on('marcio', async (data) => {
     readLine();
     // console.log("connected socket")
 });
+//======= Fim da configuração do socket =======//
 
+//======= Função para ler pelo terminal =======//
 readLine();
 function readLine() {
     var readline = require('readline');
@@ -61,3 +68,4 @@ function readLine() {
         leitor.close();
     });
 }
+//======= Fim da função para ler pelo terminal =======//
