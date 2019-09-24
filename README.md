@@ -17,6 +17,9 @@ git clone https://github.com/alexalmeida52/chat-seguro
 ```
 2. Com o projeto baixado, entre no diretório do projeto em seu computador e execute o seguinte comando, para instalar todas as dependências:
 ```
+cd chat-seguro
+```
+```
 npm install
 ```
 E esse, para executar o servidor:
@@ -28,7 +31,6 @@ node server.js
 4. Após isso, pode executar o main.js com o seguinte comando:
 
 ```
-cd chat-seguro
 node main.js
 ```
 
