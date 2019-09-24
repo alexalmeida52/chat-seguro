@@ -28,6 +28,7 @@ node server.js
 4. Após isso, pode executar o main.js com o seguinte comando:
 
 ```
+cd chat-seguro
 node main.js
 ```
 
