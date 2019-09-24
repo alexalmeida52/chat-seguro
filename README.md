@@ -12,6 +12,23 @@ O chat seguro é um projeto da disciplina de Segurança de Redes da UFRN, que co
 ### Como executar
 
 1. Baixe o projeto do git
-    - ``` 
-        git clone https://github.com/alexalmeida52/chat-seguro
-        ```
+```
+git clone https://github.com/alexalmeida52/chat-seguro
+```
+2. Com o projeto baixado, entre no diretório do projeto em seu computador e execute o seguinte comando, para instalar todas as dependências:
+```
+npm install
+```
+E esse, para executar o servidor:
+```
+node server.js
+```
+3. O arquivo server.js será um dos lados do chat, o outro será o main.js. Você terá que executar o main.js para conversar com o computador que está executando o server.js. Antes de executar o main.js altere a sua segunda linha, para indicar qual endereço o socket deve apontar. Por exemplo, io.connect("http://10.51.67.140:5354"), certifique-se de colocar o ip do computador que está executando o server.js. Obs.: Os dois computadores devem estar na mesma rede (é claro).
+
+4. Após isso, pode executar o main.js com o seguinte comando:
+
+```
+node main.js
+```
+
+5. O computador que executar o main.js começará o chat, enviando um número para trocar chaves e em seguida o computador enviará também um número de volta, a partir daí o chat está livre para conversar.
