@@ -23,7 +23,7 @@ E esse, para executar o servidor:
 ```
 node server.js
 ```
-3. O arquivo server.js será um dos lados do chat, o outro será o main.js. Você terá que executar o main.js para conversar com o computador que está executando o server.js. Antes de executar o main.js altere a sua segunda linha, para indicar qual endereço o socket deve apontar. Por exemplo, io.connect("http://10.51.67.140:5354"), certifique-se de colocar o ip do computador que está executando o server.js. Obs.: Os dois computadores devem estar na mesma rede (é claro).
+3. O arquivo server.js será um dos lados do chat, o outro será o main.js, ou seja, baixe esse mesmo projeto em outro computador e lá será executado apenas o main.js. Você terá que executar o main.js para conversar com o computador que está executando o server.js. Antes de executar o main.js altere a sua segunda linha, para indicar qual endereço o socket deve apontar. Por exemplo, io.connect("http://10.51.67.140:5354"), certifique-se de colocar o ip do computador que está executando o server.js. Obs.: Os dois computadores devem estar na mesma rede (é claro).
 
 4. Após isso, pode executar o main.js com o seguinte comando:
 
