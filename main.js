@@ -1,5 +1,5 @@
 const io = require('socket.io-client');
-const socket = io.connect("http://10.51.67.140:5000");
+const socket = io.connect("http://10.51.67.140:5354");
 const gerarChaves = require('./untils/gerarChaves.js')
 const cript = require('./untils/cript.js');
 const descript = require('./untils/descript.js');

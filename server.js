@@ -72,6 +72,6 @@ app.use(function (err, req, res, next) {
 
 const serverPort = process.env.PORT || 5354;
 
-http.listen(5000, () => {
+http.listen(5354, () => {
   // console.log(`Listening on server_port ${serverPort}`);
 });
