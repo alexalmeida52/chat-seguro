@@ -1,11 +1,25 @@
 {
-  "name": "downloads",
+  "name": "chat-seguro",
   "version": "1.0.0",
-  "description": "",
-  "main": "cript.js",
+  "description": "Chat criptografado com cifra Simple Des, utilizando a troca de chaves por meio Diff Hellman.",
+  "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
-  "author": "",
-  "license": "ISC"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexalmeida52/chat-seguro.git"
+  },
+  "author": "alex alves",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexalmeida52/chat-seguro/issues"
+  },
+  "homepage": "https://github.com/alexalmeida52/chat-seguro#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "jsbi": "^3.1.1",
+    "socket.io": "^2.3.0"
+  }
 }
